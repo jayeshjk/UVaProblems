@@ -11,16 +11,16 @@ int main(){
   int max_temp;
   while(1){
     cin >> n;
+    getline(cin, temp1);
     if(n == 0) break;
-    if(n == 1) cout << "0" << endl;
     //image.resize(n);
     max_temp = 0;
     for(int i=0;i<n;i++){
       getline(cin, temp1);
-      //cin >> temp1;
-      //cin >> temp2;
-      //image_data.push_back(temp1.size() + temp2.size());
-      image_data[i] = 25 - (temp1.rfind((char)32) - temp1.find((char)32));
+      image_data[i] = 0;
+      for(int j=0;j<temp1.size();j++){
+        if(temp1[j] == 'X') image_data[i]++;
+      }
       if(image_data[i] > max_temp){
         max_temp = image_data[i];
       }
